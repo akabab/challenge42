@@ -42,3 +42,5 @@ Temp/
 Assets/BDD/
 *.csproj
 *.unityproj
+Builds/
+Exemples_Levels/
