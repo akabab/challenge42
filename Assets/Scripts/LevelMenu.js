@@ -43,8 +43,8 @@ function Update()
 function OnGUI()
 {
   //RESET LEVELS
-  //if( GUI.Button(Rect(Screen.width - 64, Screen.height - 44, 44, 44), texture[0], otherStyle[0]) ) PlayerPrefs.DeleteAll();
-  //GUI.DrawTexture(Rect(0,0,Screen.width,Screen.height), background);
+//  if( GUI.Button(Rect(Screen.width - 64, Screen.height - 44, 44, 44), texture[0], otherStyle[0]) ) PlayerPrefs.DeleteAll();
+//  GUI.DrawTexture(Rect(0,0,Screen.width,Screen.height), background);
 
   DrawLevelBoxes();
 
@@ -54,9 +54,10 @@ function OnGUI()
     menuGO.SetActive(true);
   }
 
-  //if( GUI.Button(Rect(0, 0, 4, 4), "", otherStyle[0]) ) levelsUnlocked += 1;
+  if( GUI.Button(Rect(0, 0, 20, 20), "", otherStyle[3]) ) levelsUnlocked = Mathf.Max(1, levelsUnlocked - 1);
+  if( GUI.Button(Rect(Screen.width - 20, 0, 20, 20), "", otherStyle[3]) ) levelsUnlocked = Mathf.Min(levelsUnlocked + 1, 20);
   /*
-  if( GUI.Button(Rect(size.bigMargin*2, Screen.height - size.smallButton, size.smallButton, size.smallButton), GUIContent(texture[0], "Create Level"), otherStyle[0]) ) Application.LoadLevel( "Editor" );
+  if( GUI.Button(Rect(size.bigMargin*2, Screen.height - size.smallButton, size.smallButton, size.smallButton), GUIContent(texture[0], "Create Level"), otherStyle[0]) ) SceneManagement.SceneManager.LoadScene( "Editor" );
 
   //levelToLoad = GUI.TextField(Rect((Screen.width - Screen.width*0.8)/2, Screen.height - size.smallButton*0.8, Screen.width*0.8, 22), levelToLoad);
 
@@ -85,7 +86,7 @@ function OnGUI()
       PlayerPrefs.SetString("levelIndex", "999");
       PlayerPrefs.SetString("level999", levelToLoad);
 
-      Application.LoadLevel ("Game");
+      SceneManagement.SceneManager.LoadScene ("Game");
     }
   }*/
   /*
@@ -113,7 +114,7 @@ function DrawLevelBoxes ()
           PlayerPrefs.DeleteKey("levelIndex");
           PlayerPrefs.SetString("levelIndex", k.ToString() );
 
-          Application.LoadLevel ("Game");
+          SceneManagement.SceneManager.LoadScene("Game");
         }
       }
       else

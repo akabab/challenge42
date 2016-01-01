@@ -1,0 +1,17 @@
+﻿<Properties StartupItem="Assembly-UnityScript.unityproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Game.js">
+    <Files>
+      <File FileName="Assets/Scripts/GetWebLevels.js" Line="79" Column="12" />
+      <File FileName="Assets/Scripts/Game.js" Line="183" Column="4" />
+      <File FileName="Assets/Scripts/Load42Levels.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SaveWebLevel.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Menu.js" Line="29" Column="19" />
+      <File FileName="Assets/Scripts/LevelMenu.js" Line="117" Column="49" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

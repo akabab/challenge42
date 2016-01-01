@@ -32,5 +32,5 @@ function Anim ()
 	
 	yield WaitForSeconds(5);
 	
-	Application.LoadLevel("Menu");
+	SceneManagement.SceneManager.LoadScene("Menu");
 }

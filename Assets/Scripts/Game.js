@@ -178,12 +178,12 @@ function OnGUI ()
 		if ( GUI.Button(Rect( Screen.width - (size.smallButton*3 + size.smallMargin*2 + size.mediumMargin), Screen.height - size.smallButton, size.smallButton, size.smallButton), GUIContent(otherTexture[1], "Continue"), otherStyle[0]) )
 		{
 			levelIndex += 1;
-			level = PlayerPrefs.GetString( "level" + levelIndex );
+			level = PlayerPrefs.GetString("level" + levelIndex);
 			if (!level)
 			{
-				Debug.Log("no more level");
 				levelIndex -= 1;
-				level = PlayerPrefs.GetString( "level" + levelIndex );
+				level = PlayerPrefs.GetString("level" + levelIndex);
+				SceneManagement.SceneManager.LoadScene("Menu");
 			}
 			else
 			{
@@ -209,7 +209,7 @@ function OnGUI ()
 	
 	if (settingToggle)
 	{
-		if ( GUI.Button(Rect(Screen.width - (size.smallButton + size.mediumMargin), Screen.height - (size.smallButton*2 + size.bigOffset), size.smallButton, size.smallButton), GUIContent(otherTexture[0], "Menu"), otherStyle[0]) ) Application.LoadLevel("Menu");
+		if ( GUI.Button(Rect(Screen.width - (size.smallButton + size.mediumMargin), Screen.height - (size.smallButton*2 + size.bigOffset), size.smallButton, size.smallButton), GUIContent(otherTexture[0], "Menu"), otherStyle[0]) ) SceneManagement.SceneManager.LoadScene("Menu");
 		
 		needHelp = GUI.Toggle(Rect(Screen.width - (size.smallButton + size.mediumMargin), Screen.height - (size.smallButton*3 + size.bigOffset*2), size.smallButton, size.smallButton), needHelp, GUIContent(otherTexture[5], "Help"), otherStyle[0]);
 	
@@ -217,7 +217,7 @@ function OnGUI ()
 	
 	if (isTesting)
 	{
-		if ( GUI.Button(Rect(Screen.width - (size.smallButton*2 + size.smallMargin + size.mediumMargin), Screen.height - size.smallButton, size.smallButton, size.smallButton), GUIContent(otherTexture[2], "Edit"), otherStyle[0]) ) Application.LoadLevel( "Editor" );
+		if ( GUI.Button(Rect(Screen.width - (size.smallButton*2 + size.smallMargin + size.mediumMargin), Screen.height - size.smallButton, size.smallButton, size.smallButton), GUIContent(otherTexture[2], "Edit"), otherStyle[0]) ) SceneManagement.SceneManager.LoadScene( "Editor" );
 	
 		if (win)
 		{
@@ -251,7 +251,7 @@ function SetMessage(newMessage : String, priority : int) {
 
 var isRequesting : boolean = false;
 
-private var url = "http://www.ycribier.com/challenge42/db/42SaveLevel.php"; 
+private var url = "http://www.ycribier.com/games/challenge42/db/42SaveLevel.php"; 
 
 function SendRequest ()
 {
@@ -277,7 +277,7 @@ function SendRequest ()
 				Debug.Log("GOOD");
 				SetMessage("Level Saved !", 2);
 				yield WaitForSeconds(1);
-				Application.LoadLevel("Menu");
+				SceneManagement.SceneManager.LoadScene("Menu");
 				break;
 			case "NAMEX":
 				Debug.Log("Name already exists!");
@@ -458,8 +458,7 @@ function DrawControls ()
  		}
  		x3Toggle = tempX3Toggle;
 	}	
-		
-	
+
 	GUI.EndGroup();
 }
 
@@ -1150,4 +1149,3 @@ function SetFontSizes ()
 	otherStyle[3].fontSize = Mathf.Round(Screen.height/41.78);
 	otherStyle[4].fontSize = Mathf.Round(Screen.height/25.07);
 }
-

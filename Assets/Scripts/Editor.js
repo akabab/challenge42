@@ -73,7 +73,7 @@ var levelIsSaved : boolean = false;
 function Awake ()
 {
 	resolution = Vector2(Screen.width, Screen.height);
-	
+
 	size.SetSizes();
 	
 	SetFontSizes();
@@ -148,13 +148,12 @@ function OnGUI ()
 			//Save();
 			PlayerPrefs.SetString("levelIndex", "0");
 			PlayerPrefs.SetString("level0", savedLevel);
-			Application.LoadLevel( "Game" );	 
+			SceneManagement.SceneManager.LoadScene( "Game" );	 
 		} 
 	}
 	
-	
-	if( GUI.Button(Rect(Screen.width - (size.smallButton + size.mediumMargin), Screen.height - size.smallButton, size.smallButton, size.smallButton), otherTexture[0], otherStyle[0]) ) Application.LoadLevel("Menu"); //MENU
-		
+	if( GUI.Button(Rect(Screen.width - (size.smallButton + size.mediumMargin), Screen.height - size.smallButton, size.smallButton, size.smallButton), otherTexture[0], otherStyle[0]) ) SceneManagement.SceneManager.LoadScene("Menu"); //MENU
+			
 	
 	if( GUI.Button(Rect(0, Screen.height - size.smallButton, size.smallButton, size.smallButton), otherTexture[3], otherStyle[0]) ) //DEL
 	{

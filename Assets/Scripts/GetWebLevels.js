@@ -5,7 +5,7 @@ import System.Collections.Generic;
 
 var isRequesting : boolean = false;
 
-private var getLevelsUrl = "http://www.ycribier.com/challenge42/db/42Levels.php";
+private var getLevelsUrl = "http://www.ycribier.com/games/challenge42/db/42Levels.php";
 
 var groupRect : Rect;
 
@@ -66,6 +66,7 @@ function Awake ()
   k = 1;
 }
 
+var debugMessage : String = "wesh";
 
 function OnGUI ()
 {
@@ -74,6 +75,8 @@ function OnGUI ()
     gameObject.SetActive(false);
     menuGO.SetActive(true);
   }
+
+//  GUILayout.TextField(debugMessage);
 
   if (display)
   {
@@ -146,7 +149,7 @@ function OnGUI ()
         //PlayerPrefs.SetString("level666", levelName[i] + "#" + keyString[i] );
         PlayerPrefs.SetString("level666", "" + keyString[i] );
 
-        Application.LoadLevel ("Game");
+        SceneManagement.SceneManager.LoadScene("Game");
        }
 
        GUI.Label(Rect(250, i*40, 250, 40), "" + author[i], tabStyle);
@@ -181,8 +184,8 @@ function SendRequest (_rdID : int)
 
   if (request.error)
   {
-    print("There was an error posting the high score: " + request.error);
-
+    print(request.error);
+    debugMessage = request.error;
     //Connection problem -> display message
   }
   else

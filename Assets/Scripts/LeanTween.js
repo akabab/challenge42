@@ -376,7 +376,7 @@ public static function update() {
 						case TweenAction.SCALE_Z:
 							tween.from.x = trans.localScale.z; break;
 						case TweenAction.ALPHA:
-							tween.from.x = trans.gameObject.renderer.material.color.a; break;
+							tween.from.x = trans.gameObject.GetComponent.<Renderer>().material.color.a; break;
 						case TweenAction.MOVE_LOCAL:
 							tween.from = trans.localPosition; break;
 						case TweenAction.ROTATE:
@@ -521,7 +521,7 @@ public static function update() {
 					    }else if(tweenAction==TweenAction.ROTATE_Z){
 					    	trans.eulerAngles.z = val;
 					    }else if(tweenAction==TweenAction.ALPHA){
-							trans.gameObject.renderer.material.color.a = val;
+							trans.gameObject.GetComponent.<Renderer>().material.color.a = val;
 						}
 						
 					}else if(tweenAction>=TweenAction.MOVE){
