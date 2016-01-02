@@ -32,9 +32,9 @@ var levelLoaded : boolean = false;
 var message : String;
 
 //@HideInInspector
-var speedX1 : float = 0.3;
-var speedX2 : float = 0.15;
-var speedX3 : float = 0.1;
+var speedX1 : float = 0.4;
+var speedX2 : float = 0.1;
+var speedX3 : float = 0.01;
 
 var delay : float;
 var timeElapsed : float = 0; 
